@@ -1,18 +1,67 @@
 /*Queries that provide answers to the questions from all projects.*/
+SELECT NAME
+FROM ANIMALS
+WHERE NAME = '%mon';
 
-SELECT name from animals
-WHERE name = '%mon';
-SELECT name from animals
-WHERE date_of_birth BETWEEN '2016/01/01' AND '2019/12/31';
-SELECT name from animals
-WHERE neutered = TRUE AND escape_attempts < 3;
-SELECT date_of_birth from animals
-WHERE name = 'Augmon' OR name = 'Pikachu';
-SELECT name, escape_attempts from animals
-WHERE weight_kg > 10.5;
-SELECT * from animals
-WHERE neutered = TRUE;
-SELECT name from animals
-WHERE name != 'Gabumon';
-SELECT * from animals
-WHERE weight_kg >= 10.4 AND weight_kg <= 17.3
+
+SELECT NAME
+FROM ANIMALS
+WHERE DATE_OF_BIRTH BETWEEN '2016/01/01' AND '2019/12/31';
+
+
+SELECT NAME
+FROM ANIMALS
+WHERE NEUTERED = TRUE
+	AND ESCAPE_ATTEMPTS < 3;
+
+
+SELECT DATE_OF_BIRTH
+FROM ANIMALS
+WHERE NAME = 'Augmon'
+	OR NAME = 'Pikachu';
+
+
+SELECT NAME,
+	ESCAPE_ATTEMPTS
+FROM ANIMALS
+WHERE WEIGHT_KG > 10.5;
+
+
+SELECT *
+FROM ANIMALS
+WHERE NEUTERED = TRUE;
+
+
+SELECT NAME
+FROM ANIMALS
+WHERE NAME != 'Gabumon';
+
+
+SELECT *
+FROM ANIMALS
+WHERE WEIGHT_KG >= 10.4
+	AND WEIGHT_KG <= 17.3;
+
+BEGIN;
+
+
+UPDATE ANIMALS
+SET SPECIES = 'unspecified';
+
+
+ROLLBACK;
+
+BEGIN;
+
+
+UPDATE ANIMALS
+SET SPECIES = 'digimon'
+WHERE "name" LIKE '%mon';
+
+
+UPDATE ANIMALS
+SET SPECIES = 'pokemon'
+WHERE SPECIES IS NULL;
+
+
+COMMIT;
