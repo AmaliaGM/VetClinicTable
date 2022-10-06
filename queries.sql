@@ -112,22 +112,23 @@ SELECT AVG(escape_attempts) AS "AVERAGE ESCAPE ATTEMPTS OF ANIMALS" FROM animals
 SELECT MIN(weight_kg) AS "MINIMUM WEIGHT", MAX(weight_kg) AS "MAXIMUM WEIGHT" FROM animals GROUP BY species;
 
 BEGIN;
+SELECT "name" AS "Melody`s Animals" FROM animals JOIN owners ON animals.owners_id = owners.id
+WHERE owners.full_name = 'Melody Pond';
 
+SELECT animals.name AS "Pokemon Animals" FROM animals JOIN species ON animals.species_id = species.id
+WHERE species.name = 'Pokemon';
 
-UPDATE ANIMALS
-SET SPECIES_ID = 2
-WHERE "name" LIKE '%mon';
+SELECT owners.full_name, animals.name FROM owners LEFT JOIN animals ON owners.id = animals.owners_id;
 
+SELECT species.name, COUNT(*) FROM animals JOIN species ON animals.species_id = species.id GROUP BY species.name;
 
-COMMIT;
+SELECT animals.name AS "Digimons owned by Jennifer Orwell" FROM animals JOIN owners ON animals.owners_id = owners_id JOIN species ON animals.species_id = species_id
+WHERE owners.full_name LIKE 'Jennifer Orwell' AND species.name LIKE 'Digimon';
 
+SELECT animals.name AS "Animals owned by Dean Winchester that never tried to escape" FROM animals JOIN owners ON animals.owners_id = owners.id
+WHERE owners.full_name LIKE 'Dean Winchester' AND animals.escape_attempts = 0;
 
-UPDATE ANIMALS
-SET SPECIES_ID = 1
-WHERE "name" NOT LIKE '%mon';
-
-
-COMMIT;
+SELECT owners.full_name AS "Owns more animals" FROM owners JOIN animals ON owners.id = animals.owners_id GROUP BY owners.full_name ORDER BY COUNT(*) DESC LIMIT 1;
 
 
 SELECT *
