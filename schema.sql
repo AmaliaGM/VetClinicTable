@@ -18,3 +18,38 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.animals
     OWNER to postgres;
+	
+-- Table: public.owners
+
+-- DROP TABLE IF EXISTS public.owners;
+
+CREATE TABLE IF NOT EXISTS public.owners
+(
+    id integer NOT NULL,
+    full_name name COLLATE pg_catalog."C" NOT NULL,
+    age integer NOT NULL,
+    CONSTRAINT owners_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.owners
+    OWNER to postgres;
+	
+	
+-- Table: public.species
+
+-- DROP TABLE IF EXISTS public.species;
+
+CREATE TABLE IF NOT EXISTS public.species
+(
+    id integer NOT NULL,
+    name name COLLATE pg_catalog."C" NOT NULL,
+    CONSTRAINT species_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.species
+    OWNER to postgres;
+	
