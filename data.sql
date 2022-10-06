@@ -18,3 +18,90 @@ INSERT INTO owners (id, full_name, age) VALUES (6, 'Jodie Whittaker', 38);
 
 INSERT INTO species (id, "name") VALUES (1, 'Pokemon');
 INSERT INTO species (id, "name") VALUES (2, 'Digimon');
+
+BEGIN;
+
+
+UPDATE ANIMALS
+SET SPECIES_ID = 2
+WHERE "name" LIKE '%mon';
+
+
+COMMIT;
+
+
+UPDATE ANIMALS
+SET SPECIES_ID = 1
+WHERE "name" NOT LIKE '%mon';
+
+
+COMMIT;
+
+BEGIN;
+
+
+UPDATE ANIMALS
+SET owners_id = 1
+WHERE "name" LIKE 'Augmon';
+
+COMMIT;
+
+
+UPDATE ANIMALS
+SET owners_id = 2
+WHERE "name" LIKE 'Gabumon';
+
+COMMIT;
+
+
+UPDATE ANIMALS
+SET owners_id = 2
+WHERE "name" LIKE 'Pikachu';
+
+COMMIT;
+
+UPDATE ANIMALS
+SET owners_id = 3
+WHERE "name" LIKE 'Devimon';
+
+COMMIT;
+
+UPDATE ANIMALS
+SET owners_id = 3
+WHERE "name" LIKE 'Plantmon';
+
+COMMIT;
+
+UPDATE ANIMALS
+SET owners_id = 4
+WHERE "name" LIKE 'Charmander';
+
+COMMIT;
+
+UPDATE ANIMALS
+SET owners_id = 4
+WHERE "name" LIKE 'Squirtle';
+
+COMMIT;
+
+UPDATE ANIMALS
+SET owners_id = 4
+WHERE "name" LIKE 'Blossom';
+
+COMMIT;
+
+UPDATE ANIMALS
+SET owners_id = 5
+WHERE "name" LIKE 'Angemon';
+
+COMMIT;
+
+
+UPDATE ANIMALS
+SET owners_id = 5
+WHERE "name" LIKE 'Boarmon';
+
+COMMIT;
+
+SELECT *
+FROM ANIMALS;
