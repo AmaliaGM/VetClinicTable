@@ -64,3 +64,29 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS public.species
     OWNER to postgres;
 	
+CREATE TABLE IF NOT EXISTS public.vets
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9999 CACHE 1 ),
+    name name COLLATE pg_catalog."C" NOT NULL,
+    age integer NOT NULL,
+    date_of_graduation date NOT NULL,
+    CONSTRAINT vets_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.vets
+    OWNER to postgres;
+
+CREATE TABLE IF NOT EXISTS public.visits
+(
+    vet_id integer NOT NULL,
+    animals_id integer NOT NULL,
+    visits_date date NOT NULL
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.visits
+    OWNER to postgres;
+    
