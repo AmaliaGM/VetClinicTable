@@ -112,4 +112,68 @@ INSERT INTO vets("name",age,date_of_graduation) VALUES('Stephanie Mendez',	64,	'
 INSERT INTO vets("name",age,date_of_graduation) VALUES('Jack Harkness',	38,	'2008/06/08');
 SELECT * FROM vets;
 
+UPDATE visits
+SET vet_name = 'William Tatcher'
+WHERE vet_id = 1;
 
+UPDATE visits
+SET vet_name = 'Maisy Smith'
+WHERE vet_id = 2;
+COMMIT;
+
+UPDATE visits
+SET vet_name = 'Stephanie Mendez'
+WHERE vet_id = 3;
+COMMIT;
+
+UPDATE visits
+SET vet_name = 'Jack Harkness'
+WHERE vet_id = 4;
+COMMIT;
+
+BEGIN;
+UPDATE visits
+SET animal_name = 'Augmon'
+WHERE animals_id = 1;
+COMMIT;
+UPDATE visits
+SET animal_name = 'Gabumon'
+WHERE animals_id = 2;
+COMMIT;
+UPDATE visits
+SET animal_name = 'Pikachu'
+WHERE animals_id = 3;
+COMMIT;
+UPDATE visits
+SET animal_name = 'Devimon'
+WHERE animals_id = 4;
+COMMIT;
+UPDATE visits
+SET animal_name = 'Charmaner'
+WHERE animals_id = 5;
+COMMIT;
+UPDATE visits
+SET animal_name = 'Plantmon'
+WHERE animals_id = 6;
+COMMIT;
+UPDATE visits
+SET animal_name = 'Squirtle'
+WHERE animals_id = 7;
+COMMIT;
+UPDATE visits
+SET animal_name = 'Angemon'
+WHERE animals_id = 8;
+COMMIT;
+UPDATE visits
+SET animal_name = 'Boarmon'
+WHERE animals_id = 9;
+COMMIT;
+UPDATE visits
+SET animal_name = 'Blossom'
+WHERE animals_id = 10;
+COMMIT;
+UPDATE visits
+SET animal_name = 'Ditto'
+WHERE animals_id = 11;
+COMMIT;
+SELECT * FROM visits;
