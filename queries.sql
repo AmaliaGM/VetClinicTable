@@ -133,3 +133,29 @@ SELECT owners.full_name AS "Owns more animals" FROM owners JOIN animals ON owner
 
 SELECT *
 FROM ANIMALS;
+
+// Day 4 Queries
+
+SELECT animals.name AS "Last animal seen by William Tatcher" 
+FROM animals JOIN visits ON animals.id = visits.animals_id JOIN vets ON vets.id = visits.vet_id 
+WHERE vets."name" = 'William Tatcher' ORDER BY visits.visits_date DESC LIMIT 1;
+
+SELECT COUNT(DISTINCT animals.name) AS "How many different animals did Stephanie Mendez have seen" FROM animals JOIN visits ON animals.id = visits.animals_id
+WHERE vet_name = 'Stephanie Mendez';
+
+SELECT vets.name, species.name FROM vets LEFT JOIN specializations ON vets.id = specializations.vets_id LEFT JOIN species ON specializations.species_id = species.id;
+
+SELECT animals.name AS "Animals that visited Stephanie Mendez from April 1st until August 30th" 
+FROM animals JOIN visits ON animals.id = visits.animals_id JOIN vets ON vets.id = visits.vet_id
+WHERE vets.name = 'Stephanie Mendez' AND visits.visits_date BETWEEN '2020/04/01' AND '2020/08/30';
+
+SELECT animals.name FROM animals JOIN visits ON animals.id = visits.animals_id GROUP BY animals.name 
+ORDER BY COUNT(*) DESC LIMIT 1;
+
+SELECT animals.name AS "Maisy Smith first visit" FROM animals JOIN visits ON animals.id = visits.animals_id JOIN vets ON vets.id = visits.vet_id
+WHERE vets."name" = 'Maisy Smith' ORDER BY visits.visits_date LIMIT 1;
+
+SELECT animals.name, vets.name, visits.visits_date FROM animals JOIN visits ON animals.id = visits.animals_id JOIN vets ON vets.id = visits.vet_id ORDER BY visits.visits_date DESC LIMIT 1;
+
+
+SELECT COUNT (*) FROM visits JOIN vets ON vets.id = visits.vets_id JOIN animals ON animals.id = visits.animals_id JOIN species ON animals.species_id = species.id WHERE vets.id NOT IN (SELECT vets.id FROM vets JOIN specializations ON vets.id = specializations.vet_id JOIN species ON specializations.species_id = species.id WHERE species.id = animals.species_id);
