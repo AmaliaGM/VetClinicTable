@@ -105,3 +105,11 @@ COMMIT;
 
 SELECT *
 FROM ANIMALS;
+
+INSERT INTO vets("name",age,date_of_graduation) VALUES('William Tatcher',45,'2000/04/03');
+INSERT INTO vets("name",age,date_of_graduation) VALUES('Maisy Smith',	26,	'2019/06/17');
+INSERT INTO vets("name",age,date_of_graduation) VALUES('Stephanie Mendez',	64,	'1981/05/04');
+INSERT INTO vets("name",age,date_of_graduation) VALUES('Jack Harkness',	38,	'2008/06/08');
+SELECT * FROM vets;
+
+
