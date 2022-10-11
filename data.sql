@@ -178,7 +178,6 @@ WHERE animals_id = 11;
 COMMIT;
 SELECT * FROM visits;
 
-
 -- Add an email column to your owners table
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
