@@ -164,3 +164,7 @@ SELECT COUNT(*) FROM visits where animal_id = 4;
 SELECT * FROM visits where vet_id = 2;
 
 SELECT * FROM owners where email = 'owner_18327@mail.com';
+
+
+SELECT COUNT (*) FROM visits JOIN vets ON vets.id = visits.vets_id JOIN animals ON animals.id = visits.animals_id JOIN species ON animals.species_id = species.id WHERE vets.id NOT IN (SELECT vets.id FROM vets JOIN specializations ON vets.id = specializations.vet_id JOIN species ON specializations.species_id = species.id WHERE species.id = animals.species_id);
+

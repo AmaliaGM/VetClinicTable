@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS public.owners
     email character varying(120) COLLATE pg_catalog."default",
     CONSTRAINT owners_pkey PRIMARY KEY (id)
 );
-)
 
 TABLESPACE pg_default;
 

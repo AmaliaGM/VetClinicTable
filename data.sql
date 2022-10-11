@@ -178,6 +178,7 @@ WHERE animals_id = 11;
 COMMIT;
 SELECT * FROM visits;
 
+
 -- Add an email column to your owners table
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
@@ -187,3 +188,4 @@ INSERT INTO visits (animals_id, vet_id, visits_date) SELECT * FROM (SELECT id FR
 
 
 SELECT * FROM visits;
+
